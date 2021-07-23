@@ -2,7 +2,7 @@
   <v-card class="mx-auto" :color="itemColor" :style="itemStyle" @click="activate">
     <v-container class="ma-0">
       <v-row class="px-2">
-        <v-col class="d-flex align-center">
+        <v-col cols="9" class="d-flex align-center">
           <v-tooltip bottom>
             <template #activator="{ on, attrs }">
               <span v-bind="attrs" v-on="on">{{ taskItem.name }}</span>
@@ -11,7 +11,7 @@
           </v-tooltip>
         </v-col>
         <v-spacer></v-spacer>
-        <v-col>
+        <v-col cols="1" class="d-flex align-center">
           <v-icon color="red darken-2" @click="deleteTaskItem">mdi-trash-can</v-icon>
         </v-col>
       </v-row>

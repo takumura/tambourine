@@ -4,7 +4,7 @@
       <navigation-header />
       <navigation-sidebar />
       <v-container>
-        <active-task></active-task>
+        <active-task class="py-4"></active-task>
         <nuxt />
       </v-container>
     </v-main>
