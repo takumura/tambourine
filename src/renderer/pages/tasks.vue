@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-text-field label="task" hint="Tam your next task" @keyup.enter="addTask"></v-text-field>
+    <v-text-field label="task" hint="What's your next task?" @keyup.enter="addTask"></v-text-field>
     <task-list></task-list>
   </div>
 </template>

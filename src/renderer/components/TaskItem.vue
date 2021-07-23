@@ -21,6 +21,7 @@
     </v-container>
   </v-card>
 </template>
+
 <script lang="ts">
 import Vue from 'vue'
 import { Task } from '../store/tasks'
