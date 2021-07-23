@@ -11,6 +11,9 @@
           </v-tooltip>
         </v-col>
         <v-spacer></v-spacer>
+        <v-col cols="2" class="d-flex align-center">
+          <div>{{ totalMinutes() }}</div>
+        </v-col>
         <v-col cols="1" class="d-flex align-center">
           <v-icon color="red darken-2" @click="deleteTaskItem">mdi-trash-can</v-icon>
         </v-col>
@@ -56,6 +59,9 @@ export default Vue.extend({
     },
     deleteTaskItem(): void {
       this.$accessor.tasks.removeTask(this.taskItem)
+    },
+    totalMinutes() {
+      return this.$accessor.taskHistories.getTotalMinutes(this.taskItem.id)
     },
   },
 })

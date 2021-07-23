@@ -20,7 +20,16 @@ export const state = () => ({
 
 export type RootState = ReturnType<typeof rootState>
 
-export const getters = getterTree(state, {})
+export const getters = getterTree(state, {
+  getTotalMinutes: (state) => (taskId: string) => {
+    const histories = state.entities[taskId]
+    const total =
+      histories?.length > 0
+        ? Math.round(histories.map((x) => x.duration).reduce((acc, current) => acc + current) / 60)
+        : 0
+    return `${total} min`
+  },
+})
 
 export const mutations = mutationTree(state, {
   ADD_TASK_HISTORY(state, history: TaskHistory) {
