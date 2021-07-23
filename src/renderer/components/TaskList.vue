@@ -10,14 +10,11 @@
     </v-list>
   </v-container>
 </template>
+
 <script lang="ts">
 import Vue from 'vue'
-import TaskItem from './TaskItem.vue'
 
 export default Vue.extend({
-  components: {
-    TaskItem,
-  },
   computed: {
     getTaskList() {
       return this.$accessor.tasks.getTasks

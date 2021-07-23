@@ -21,15 +21,12 @@
     </v-container>
   </v-card>
 </template>
+
 <script lang="ts">
 import Vue from 'vue'
 import { Task } from '../store/tasks'
-import StartStopButton from './StartStopButton.vue'
 
 export default Vue.extend({
-  components: {
-    StartStopButton,
-  },
   props: {
     taskItem: {
       type: Object as () => Task,

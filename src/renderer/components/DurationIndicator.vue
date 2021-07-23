@@ -1,15 +1,12 @@
 <template>
   <duration-time :duration="duration" />
 </template>
+
 <script lang="ts">
 import Vue from 'vue'
 import { Task } from '../store/tasks'
-import DurationTime from './DurationTime.vue'
 
 export default Vue.extend({
-  components: {
-    DurationTime,
-  },
   props: {
     task: {
       type: Object as () => Task,
@@ -19,7 +16,6 @@ export default Vue.extend({
   data() {
     return { duration: 0 }
   },
-
   methods: {
     start(): void {
       const initialTime = window.performance.now()
