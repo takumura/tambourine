@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer :v-model="true" :mini-variant="true" :clipped="true" fixed app>
+  <v-navigation-drawer :v-model="true" :mini-variant="true" :clipped="true" fixed permanent app>
     <v-list>
       <v-list-item v-for="(item, i) in items" :key="i" :to="item.to" router exact>
         <v-list-item-action>
@@ -17,6 +17,7 @@
     </v-list>
   </v-navigation-drawer>
 </template>
+
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
