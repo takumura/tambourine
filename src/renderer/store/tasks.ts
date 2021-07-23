@@ -43,11 +43,11 @@ export const mutations = mutationTree(state, {
 export const actions = actionTree(
   { state, getters, mutations },
   {
-    async addTask({ commit }, description: string) {
+    addTask({ commit }, description: string) {
       const task: Task = { id: uuidv4(), name: description, done: false }
       commit('ADD_TASK', task)
     },
-    async removeTask({ commit }, task: Task) {
+    removeTask({ commit }, task: Task) {
       const accessor = this.app.$accessor
       if (!accessor.getTaskRunning) {
         if (accessor.getSelectedTaskId === task.id) accessor.setSelectedTask('')

@@ -32,16 +32,16 @@ export const mutations = mutationTree(state, {
 export const actions = actionTree(
   { state, getters, mutations },
   {
-    async setSelectedTask({ commit }, taskId: string) {
+    setSelectedTask({ commit }, taskId: string) {
       const accessor = this.app.$accessor
       if (!accessor.running) {
         commit('SET_SELECTED_TASK', taskId)
       }
     },
-    async runTask({ commit }, taskId: string) {
+    runTask({ commit }, taskId: string) {
       commit('RUN_TASK', taskId)
     },
-    async stopTask({ commit }, payload: { taskId: string; duration: number }) {
+    stopTask({ commit }, payload: { taskId: string; duration: number }) {
       const accessor = this.app.$accessor
       accessor.taskHistories.addTaskHistory({
         taskId: payload.taskId,

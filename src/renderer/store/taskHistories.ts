@@ -37,7 +37,7 @@ export const mutations = mutationTree(state, {
 export const actions = actionTree(
   { state, getters, mutations },
   {
-    async addTaskHistory({ commit }, payload: { taskId: string; dateFrom: Date; duration: number }) {
+    addTaskHistory({ commit }, payload: { taskId: string; dateFrom: Date; duration: number }) {
       const dateTo = new Date(Date.now())
       const secDuration = Math.round(payload.duration / 1000)
       const history: TaskHistory = {
@@ -45,7 +45,7 @@ export const actions = actionTree(
         taskId: payload.taskId,
         dateFrom: payload.dateFrom,
         duration: secDuration,
-        dateTo: dateTo,
+        dateTo,
       }
 
       commit('ADD_TASK_HISTORY', history)
