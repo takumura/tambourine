@@ -21,6 +21,10 @@ export const state = () => ({
 export type RootState = ReturnType<typeof rootState>
 
 export const getters = getterTree(state, {
+  getTaskHistories: (state) => (taskId: string) => {
+    const histories: TaskHistory[] = state.entities[taskId] ?? []
+    return histories
+  },
   getTotalMinutes: (state) => (taskId: string) => {
     const histories = state.entities[taskId]
     const total =

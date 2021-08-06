@@ -1,25 +1,23 @@
 <template>
-  <v-card class="mx-auto" :color="itemColor" :style="itemStyle" @click="activate">
-    <v-container class="ma-0">
-      <v-row class="px-2">
-        <v-col cols="8" class="d-flex align-center">
-          <v-tooltip bottom>
-            <template #activator="{ on, attrs }">
-              <span v-bind="attrs" v-on="on">{{ taskItem.name }}</span>
-            </template>
-            <span>{{ taskItem.id }}</span>
-          </v-tooltip>
-        </v-col>
-        <v-spacer></v-spacer>
-        <v-col cols="2">
-          <start-stop-button :task="taskItem" @startStopButtonClicked="startStopButtonClicked"></start-stop-button>
-        </v-col>
-        <v-col cols="2">
-          <duration-indicator ref="indicator" :task="taskItem" />
-        </v-col>
-      </v-row>
-    </v-container>
-  </v-card>
+  <v-container class="ma-0">
+    <v-row class="px-2">
+      <v-col cols="8" class="d-flex align-center">
+        <v-tooltip bottom>
+          <template #activator="{ on, attrs }">
+            <span v-bind="attrs" v-on="on">{{ taskItem.name }}</span>
+          </template>
+          <span>{{ taskItem.id }}</span>
+        </v-tooltip>
+      </v-col>
+      <v-spacer></v-spacer>
+      <v-col cols="2" class="d-flex align-center">
+        <start-stop-button :task="taskItem" @startStopButtonClicked="startStopButtonClicked"></start-stop-button>
+      </v-col>
+      <v-col cols="2" class="d-flex align-center">
+        <duration-indicator ref="indicator" :task="taskItem" />
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script lang="ts">

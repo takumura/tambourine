@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-auto" :color="itemColor" :style="itemStyle" @click="activate">
+  <v-card class="mx-auto task-container" :color="itemColor" :style="itemStyle" @click="activate">
     <v-container class="ma-0">
       <v-row class="px-2">
         <v-col cols="9" class="d-flex align-center">
@@ -48,7 +48,7 @@ export default Vue.extend({
     },
     itemStyle() {
       if (this.$accessor.getSelectedTaskId === this.taskItem.id) {
-        return 'font-weight: bold'
+        return 'font-weight: bold; background: accent;'
       } else {
         return ''
       }
@@ -67,3 +67,9 @@ export default Vue.extend({
   },
 })
 </script>
+
+<style scoped>
+.task-container {
+  background: #1e1e1e;
+}
+</style>
