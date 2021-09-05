@@ -1,6 +1,5 @@
 <template>
   <div>
-    <v-text-field label="task" hint="What's your next task?" @keyup.enter="addTask"></v-text-field>
     <task-list></task-list>
   </div>
 </template>
@@ -88,14 +87,6 @@ export default Vue.extend({
   },
   beforeDestroy() {
     this.unsubscribe()
-  },
-  methods: {
-    addTask(e: Event): void {
-      if (e.target instanceof HTMLInputElement) {
-        this.$accessor.tasks.addTask(e.target.value)
-        e.target.value = ''
-      }
-    },
   },
 })
 </script>

@@ -30,6 +30,9 @@ export const mutations = mutationTree(state, {
     state.ids = [...state.ids, task.id]
     state.entities = { ...state.entities, [task.id]: task }
   },
+  UPDATE_TASK(state, task: Task) {
+    state.entities[task.id] = task
+  },
   REMOVE_TASK(state, task: Task) {
     const newIds = state.ids.filter((id) => id !== task.id)
     const newEntities: { [key: string]: Task } = {}
@@ -46,6 +49,14 @@ export const actions = actionTree(
     addTask({ commit }, description: string) {
       const task: Task = { id: uuidv4(), name: description, done: false }
       commit('ADD_TASK', task)
+    },
+    editTask({ commit }, payload: { task: Task; description: string }) {
+      const editTask: Task = {
+        id: payload.task.id,
+        name: payload.description,
+        done: payload.task.done,
+      }
+      commit('UPDATE_TASK', editTask)
     },
     removeTask({ commit }, task: Task) {
       const accessor = this.app.$accessor

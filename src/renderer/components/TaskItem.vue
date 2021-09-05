@@ -2,7 +2,7 @@
   <v-card class="mx-auto task-container" :color="itemColor" :style="itemStyle" @click="activate">
     <v-container class="ma-0">
       <v-row class="px-2">
-        <v-col cols="9" class="d-flex align-center">
+        <v-col cols="8" class="d-flex align-center">
           <v-tooltip bottom>
             <template #activator="{ on, attrs }">
               <span v-bind="attrs" v-on="on">{{ taskItem.name }}</span>
@@ -15,6 +15,9 @@
           <div>{{ totalMinutes() }}</div>
         </v-col>
         <v-col cols="1" class="d-flex align-center">
+          <task-dialog :task-item="taskItem"></task-dialog>
+        </v-col>
+        <v-col cols="1" class="d-flex align-center">
           <v-icon color="red darken-2" @click="deleteTaskItem">mdi-trash-can</v-icon>
         </v-col>
       </v-row>
@@ -25,8 +28,10 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Task } from '../store/tasks'
+import TaskDialog from './TaskDialog.vue'
 
 export default Vue.extend({
+  components: { TaskDialog },
   props: {
     taskItem: {
       type: Object as () => Task,

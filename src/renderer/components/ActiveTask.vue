@@ -1,6 +1,7 @@
 <template>
-  <div v-if="taskSelected">
-    <v-expansion-panels>
+  <div>
+    <task-dialog :task-item="null"></task-dialog>
+    <v-expansion-panels v-if="taskSelected">
       <v-expansion-panel>
         <v-expansion-panel-header>
           <active-task-item :task-item="activeTask" />
@@ -25,6 +26,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { TaskHistory } from '~/store/taskHistories'
 import { Task } from '~/store/tasks'
 
 export default Vue.extend({
@@ -32,12 +34,12 @@ export default Vue.extend({
     activeTask(): Task {
       return this.$accessor.tasks.getActiveTask
     },
-    getTaskHistoryList() {
+    getTaskHistoryList(): TaskHistory[] {
       const taskId = this.$accessor.tasks.getActiveTask?.id
-      const hitories = this.$accessor.taskHistories.getTaskHistories(taskId)
-      return hitories
+      const histories = this.$accessor.taskHistories.getTaskHistories(taskId)
+      return histories
     },
-    taskSelected() {
+    taskSelected(): string {
       return this.$accessor.selectedTaskId
     },
   },
