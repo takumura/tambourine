@@ -37,13 +37,17 @@ export default store
 // https://github.com/storybookjs/storybook/issues/4256#issuecomment-687291955
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
+  // layout: 'centered',
+  backgrounds: {
+    default: 'dark',
+  },
 }
 
 export const decorators = [
   () => ({
     vuetify: vuetifyConfig,
     template: `
-        <v-app style="background-color: transparent;" class="storybook">
+        <v-app dark style="background-color: transparent;" class="storybook">
           <v-main>
             <v-container fluid>
               <story />

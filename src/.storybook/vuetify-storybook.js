@@ -22,7 +22,7 @@ Vue.use(Vuetify, {
 
 export default new Vuetify({
   theme: {
-    dark: false,
+    dark: true,
     themes: {
       dark: {
         teal: colors.teal,
