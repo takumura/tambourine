@@ -25,6 +25,7 @@ export default new Vuetify({
     dark: false,
     themes: {
       dark: {
+        teal: colors.teal,
         primary: colors.blue.darken2,
         accent: colors.grey.darken3,
         secondary: colors.amber.darken3,
@@ -34,7 +35,6 @@ export default new Vuetify({
         success: colors.green.accent3,
       },
       light: {
-        teal: colors.teal,
         primary: colors.purple,
         accent: colors.shades.black,
         secondary: colors.grey.darken1,
