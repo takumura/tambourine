@@ -1,9 +1,9 @@
-import DurationTime from '@renderer/components/DurationTime.vue'
+import Duration from '../../renderer/components/presentational/Duration.vue'
 
 const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
-  components: { DurationTime },
-  template: '<duration-time :duration="duration" />',
+  components: { Duration },
+  template: '<duration :duration="duration" />',
 })
 
 export const durationTime = Template.bind({})

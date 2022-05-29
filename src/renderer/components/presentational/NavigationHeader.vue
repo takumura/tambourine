@@ -8,10 +8,11 @@
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
-  data() {
-    return {
-      title: 'Tambourine',
-    }
+  props: {
+    title: {
+      type: String,
+      default: 'Tambourine',
+    },
   },
 })
 </script>

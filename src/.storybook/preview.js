@@ -36,7 +36,7 @@ export default store
 // picking up required settings from
 // https://github.com/storybookjs/storybook/issues/4256#issuecomment-687291955
 export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
+  // actions: { argTypesRegex: '^on[A-Z].*' },
   // layout: 'centered',
   backgrounds: {
     default: 'dark',
